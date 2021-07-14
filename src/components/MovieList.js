@@ -1,15 +1,15 @@
 import React from 'react';
 
-const MovieList = (props) => {
-  const FavouriteComponent = props.favouriteComponent;
+const MovieList = ({movies, favouriteComponent, handleFavouritesClick}) => {
+  const FavouriteComponent = favouriteComponent;
   
   return (
     <>
-     {props.movies.map((movie, index) => (
+     {movies && movies.map((movie, index) => (
      <div key={index} className="image-container">
        <img src={movie.Poster} alt="movie"></img>
         <div 
-          onClick={() => props.handleFavouritesClick(movie)}
+          onClick={() => handleFavouritesClick(movie)}
           className="overlay"
         >
          <FavouriteComponent />
