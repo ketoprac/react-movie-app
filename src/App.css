@@ -23,7 +23,7 @@ body {
 
 .image-container {
 	display: flex;
-	justify-content: start;
+	justify-content: flex-start;
 	margin: 30px;
 	position: relative;
 	transition: transform 0.2s;
@@ -79,5 +79,5 @@ body {
 }
 
 .bi-trash-fill {
-	
+
 }
