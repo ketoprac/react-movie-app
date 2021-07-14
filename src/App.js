@@ -1,13 +1,12 @@
 import React, { useState, useEffect } from 'react';
+import './App.css';
 import MovieList from './components/MovieList';
 import MovieListHeading from './components/MovieListHeading';
 import SearchBox from './components/SearchBox';
 import AddFavourites from './components/AddFavourites';
 import RemoveFavourites from './components/RemoveFavourites';
 
-import './App.css';
-
-function App() {
+const App = () => {
   const [movies, setMovies] = useState([]);
   const [favourites, setFavourites] = useState([]);
   const [searchValue, setSearchValue] = useState('');
@@ -24,15 +23,18 @@ function App() {
     }
   };
 
-
   useEffect(() => {
     getMovieRequest(searchValue);
   }, [searchValue])
 
   useEffect(() => {
-    const movieFavourites = JSON.parse(localStorage.getItem('react-movie-app-favourites'));
+    const movieFavourites = JSON.parse(
+      localStorage.getItem('react-movie-app-favourites')
+    );
 
-    setFavourites(movieFavourites)
+    if(movieFavourites) {
+      setFavourites(movieFavourites)
+    }
   }, [])
 
   const saveToLocalStorage = (items) => {
@@ -43,13 +45,16 @@ function App() {
     const newFavouriteList = [...favourites, movie];
     setFavourites(newFavouriteList);
     saveToLocalStorage(newFavouriteList);
-  }
+  };
 
   const removeFavouriteMovie = (movie) => {
-    const newFavouriteList = favourites.filter((favourite) => favourite.Title !== movie.Title);
+    const newFavouriteList = favourites.filter(
+      (favourite) => favourite.ImdbID !== movie.ImdbID
+      );
+
     setFavourites(newFavouriteList);
     saveToLocalStorage(newFavouriteList);
-  }
+  };
 
   return (
     <div className="container movie-app">
