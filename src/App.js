@@ -9,7 +9,7 @@ import './App.css';
 
 function App() {
   const [movies, setMovies] = useState([]);
-  const [favourites, setFavourites] = useState(['']);
+  const [favourites, setFavourites] = useState([]);
   const [searchValue, setSearchValue] = useState('');
 
   const getMovieRequest = async (searchValue) => {
