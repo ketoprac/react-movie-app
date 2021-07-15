@@ -1,23 +1,24 @@
-import React from 'react';
+import React from "react";
 
-const MovieList = ({movies, favouriteComponent, handleFavouritesClick}) => {
+const MovieList = ({ movies, favouriteComponent, handleFavouritesClick }) => {
   const FavouriteComponent = favouriteComponent;
-  
+
   return (
     <>
-     {movies && movies.map((movie, index) => (
-     <div key={index} className="image-container">
-       <img src={movie.Poster} alt={movie.Title}></img>
-        <div 
-          onClick={() => handleFavouritesClick(movie)}
-          className="overlay"
-        >
-         <FavouriteComponent />
-       </div>
-     </div>
-     ))} 
+      {movies &&
+        movies.map((movie, index) => (
+          <div key={index} className="image-container">
+            <img src={movie.Poster} alt={movie.Title}></img>
+            <div
+              onClick={() => handleFavouritesClick(movie)}
+              className="overlay"
+            >
+              <FavouriteComponent />
+            </div>
+          </div>
+        ))}
     </>
-  )
-}
+  );
+};
 
-export default MovieList
+export default MovieList;
