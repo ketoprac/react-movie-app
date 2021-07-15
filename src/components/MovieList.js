@@ -7,7 +7,7 @@ const MovieList = ({movies, favouriteComponent, handleFavouritesClick}) => {
     <>
      {movies && movies.map((movie, index) => (
      <div key={index} className="image-container">
-       <img src={movie.Poster} alt="movie"></img>
+       <img src={movie.Poster} alt={movie.Title}></img>
         <div 
           onClick={() => handleFavouritesClick(movie)}
           className="overlay"
